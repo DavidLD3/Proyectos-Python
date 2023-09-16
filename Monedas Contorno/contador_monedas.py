@@ -35,7 +35,7 @@ while True:
     tipocamara,camara = captura_video.read()
     if tipocamara == False:
         break
-    imagen_A6 = aliniamiento(camara,ancho=480,alto=640)
+    imagen_A6 = aliniamiento(camara,ancho=720,alto=500)
     if imagen_A6 is not None:
         puntos = []
         imagen_gris = cv2.cvtColor(imagen_A6,cv2.COLOR_BGR2GRAY)
@@ -54,12 +54,12 @@ while True:
             x = int(momentos["m10"]/momentos["m00"])
             y = int(momentos["m01"]/momentos["m00"])
 
-            if area < 10300 and area > 9000:
+            if area < 9600 and area > 8000:
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 cv2.putText(imagen_A6, "0.50 €",(x,y),font,0.75,(0,255,0),2)
                 suma1 = suma1+0.5
 
-            if area < 6500 and area > 5000:
+            if area < 6600 and area > 5500:
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 cv2.putText(imagen_A6, "0.10 €",(x,y),font,0.75,(0,255,0),2)
                 suma2 = suma2+0.1
